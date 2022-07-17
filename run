@@ -1,0 +1,23 @@
+#!/bin/bash
+
+IMAGE=opengltest:latest
+
+FLAGS=(
+    --rm
+    -it
+    --privileged
+    -v /dev:/dev
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw
+    -v ${PWD}:${PWD}
+    -w "${PWD}"
+    -e DISPLAY=:0
+    -e MESA_LOADER_DRIVER_OVERRIDE=i965 # without this the GL2 stuff does not load
+    --entrypoint /entrypoint.sh
+)
+
+CMD=(podman run "${FLAGS[@]}" "${IMAGE}")
+
+echo "${CMD[@]}" | sed -r -e 's/ -/\n    -/g' 1>&2
+
+"${CMD[@]}" "${@}"
+

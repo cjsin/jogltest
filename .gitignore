@@ -1,0 +1,8 @@
+.container.stamp
+lib/gluegen-rt.jar
+lib/gluegen-rt-natives-linux-amd64.jar
+lib/jogl-all.jar
+lib/jogl-all-natives-linux-amd64.jar
+OpenJDK17U-jdk_x64_linux_hotspot_17.0.3_7.tar.gz
+OpenJDK18U-jdk_x64_linux_hotspot_18.0.1_10.tar.gz
+*.class
